@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>node使用 | 小茗同学</title>
+  <title>小茗同学</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不知道是否可以的应用">
-<meta name="keywords" content="测试">
+  <meta name="description" content="JS之类数组转换数组的2种方式 在转换之前，我们应该先了解一下数组与伪数组的基本格式。  1.数组的标准格式1234567891011var arr = [  0 : &quot;aaa&quot;,  1 : &quot;bbb&quot;,  2 : &quot;ccc&quot;,  length : 3,  __proto__: &amp;#123;    push : function push(),      slice : function slic">
+<meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node使用">
-<meta property="og:url" content="http://yoursite.com/2017/04/08/node使用/index.html">
+<meta property="og:title" content="小茗同学">
+<meta property="og:url" content="http://yoursite.com/2017/04/09/JS之类数组转换数组的2种方式 /index.html">
 <meta property="og:site_name" content="小茗同学">
-<meta property="og:description" content="不知道是否可以的应用">
-<meta property="og:updated_time" content="2017-04-08T13:17:27.990Z">
+<meta property="og:description" content="JS之类数组转换数组的2种方式 在转换之前，我们应该先了解一下数组与伪数组的基本格式。  1.数组的标准格式1234567891011var arr = [  0 : &quot;aaa&quot;,  1 : &quot;bbb&quot;,  2 : &quot;ccc&quot;,  length : 3,  __proto__: &amp;#123;    push : function push(),      slice : function slic">
+<meta property="og:updated_time" content="2017-03-02T03:57:26.748Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node使用">
-<meta name="twitter:description" content="不知道是否可以的应用">
+<meta name="twitter:title" content="小茗同学">
+<meta name="twitter:description" content="JS之类数组转换数组的2种方式 在转换之前，我们应该先了解一下数组与伪数组的基本格式。  1.数组的标准格式1234567891011var arr = [  0 : &quot;aaa&quot;,  1 : &quot;bbb&quot;,  2 : &quot;ccc&quot;,  length : 3,  __proto__: &amp;#123;    push : function push(),      slice : function slic">
   
     <link rel="alternative" href="/atom.xml" title="小茗同学" type="application/atom+xml">
   
@@ -154,27 +154,26 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-node使用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JS之类数组转换数组的2种方式 " class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      node使用
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/node使用/" class="archive-article-date">
-  	<time datetime="2017-04-08T13:16:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>不知道是否可以的应用</p>
+        <h1 id="JS之类数组转换数组的2种方式"><a href="#JS之类数组转换数组的2种方式" class="headerlink" title="JS之类数组转换数组的2种方式"></a>JS之类数组转换数组的2种方式</h1><ul>
+<li>在转换之前，我们应该先了解一下数组与伪数组的基本格式。</li>
+</ul>
+<h4 id="1-数组的标准格式"><a href="#1-数组的标准格式" class="headerlink" title="1.数组的标准格式"></a>1.数组的标准格式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [</div><div class="line">  <span class="number">0</span> : <span class="string">"aaa"</span>,</div><div class="line">  <span class="number">1</span> : <span class="string">"bbb"</span>,</div><div class="line">  <span class="number">2</span> : <span class="string">"ccc"</span>,</div><div class="line">  <span class="attr">length</span> : <span class="number">3</span>,</div><div class="line">  <span class="attr">__proto__</span>: &#123;</div><div class="line">    <span class="attr">push</span> : <span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params"></span>),  </span></div><div class="line">    <span class="title">slice</span> : <span class="title">function</span> <span class="title">slice</span>(<span class="params"></span>),</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>​      由上可知，push和slice是数组的原型对象上的方法。使用代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数组的用法</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">23</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line"><span class="built_in">console</span>.log(arr);</div><div class="line">arr.push(<span class="string">"hello"</span>); <span class="comment">// push():向数组的末尾追加一项数据，返回的是数组的新长度</span></div><div class="line"><span class="built_in">console</span>.log(arr.length);   <span class="comment">// 7</span></div><div class="line"></div><div class="line"><span class="comment">// 如果把数组当成对象</span></div><div class="line">arr.abc = <span class="number">123</span>;  <span class="comment">//此时数组为对象，该语句表示向数组增加一个名为abc的属性，数组长度不会改变</span></div><div class="line"><span class="built_in">console</span>.log(arr.length); <span class="comment">// 7</span></div><div class="line">arr[<span class="string">"attr"</span>] = <span class="number">232</span>;  <span class="comment">// 同上，增加新属性</span></div><div class="line"></div><div class="line">arr[<span class="number">9</span>] = <span class="number">342</span>;  <span class="comment">// 如果[]内是数字，则表示向数组的某一项赋值，此时数组的长度为10。</span></div><div class="line"><span class="built_in">console</span>.log(arr.length);  <span class="comment">// 10</span></div><div class="line"><span class="built_in">console</span>.log(arr[<span class="number">8</span>]);  <span class="comment">//undefined</span></div><div class="line"><span class="keyword">var</span> narr = arr.slice(<span class="number">0</span>, <span class="number">2</span>); <span class="comment">//从数组中返回选定长度的元素arr.slice(startIndex,endIndex)，如果只有一个参数，表示节选从startIndex到数组的末尾的元素。</span></div></pre></td></tr></table></figure></p>
+<h4 id="2-类数组的格式"><a href="#2-类数组的格式" class="headerlink" title="2.类数组的格式"></a>2.类数组的格式</h4><ul>
+<li>结构与数组相似的对象，拥有索引和长度，但是不具有数组的方法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    <span class="number">0</span> : <span class="string">"ad"</span>,</div><div class="line">    <span class="number">1</span> : <span class="string">"ae"</span>,</div><div class="line">    <span class="number">2</span> : <span class="string">"erf"</span>,</div><div class="line">    <span class="number">3</span> : <span class="string">"wer"</span>,</div><div class="line">    <span class="attr">length</span> : <span class="number">4</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="将伪数组转换成数组的两种方式"><a href="#将伪数组转换成数组的两种方式" class="headerlink" title="将伪数组转换成数组的两种方式"></a>将伪数组转换成数组的两种方式</h3><ul>
+<li>借助数组的原型上的方法：slice()和slice()</li>
+<li>通过call/apply调用函数，改变所调用函数的this指向，将伪数组转换成数组</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">      <span class="keyword">var</span> obj = &#123;</div><div class="line">          <span class="number">0</span> : <span class="string">"ad"</span>,</div><div class="line">          <span class="number">1</span> : <span class="string">"ae"</span>,</div><div class="line">          <span class="number">2</span> : <span class="string">"erf"</span>,</div><div class="line">          <span class="number">3</span> : <span class="string">"wer"</span>,</div><div class="line">          <span class="attr">length</span> : <span class="number">4</span></div><div class="line">      &#125;</div><div class="line">      <span class="comment">// 方法一：slice()</span></div><div class="line"><span class="keyword">var</span> arr1 = [].slice.call(obj, <span class="number">0</span>); <span class="comment">// obj可以借用slice方法,将伪数组转换成数组</span></div><div class="line"><span class="comment">// var arr = [].slice.apply(obj, [0]);</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">// ["add","ae","erf","wer"]</span></div><div class="line"></div><div class="line"><span class="comment">// 方法二：push()</span></div><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line">      [].push.apply(arr,obj);<span class="comment">// == Array.prototype.push.apply(arr,obj) == new Array().push.apply(arr,obj);</span></div><div class="line">      <span class="built_in">console</span>.log(arr); [<span class="string">"add"</span>,<span class="string">"ae"</span>,<span class="string">"erf"</span>,<span class="string">"wer"</span>]</div></pre></td></tr></table></figure>
+<h6 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h6><p>在做jQuery实例化时，发现可以借用上述的方法，将一个伪数组（对象）的所有元素，放在一个空对象（this）中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1 = &#123;&#125;;</div><div class="line">[].push.apply(obj1, obj);</div><div class="line">obj1.length = obj.length; <span class="comment">// 注意：这一行代码不可省略。</span></div><div class="line"><span class="built_in">console</span>.log(obj1);</div></pre></td></tr></table></figure></p>
 
       
 
@@ -204,17 +203,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -265,7 +253,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/08/node使用/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/09/JS之类数组转换数组的2种方式 /" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,20 +267,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/08/详解JS之this的不同指向/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/04/08/node使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          node使用
         
       </div>
     </a>
   
-  
-    <a href="/2017/04/09/JS之类数组转换数组的2种方式 /" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
