@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>小茗同学的blog</title>
+  <title>详解JS中this的几种不同指向 | 小茗同学的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="详解JS中this的几种不同指向如何理解this A this value is a special object which is related with the execution context. Therefore, it may be named as a context object (i.e. an object in which context the execution con">
-<meta name="keywords">
+  <meta name="description" content="如何理解this A this value is a special object which is related with the execution context. Therefore, it may be named as a context object (i.e. an object in which context the execution context is activate">
+<meta name="keywords" content="js this使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小茗同学的blog">
-<meta property="og:url" content="http://yoursite.com/2017/04/08/详解JS之this的不同指向/index.html">
+<meta property="og:title" content="详解JS中this的几种不同指向">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/node使用/index.html">
 <meta property="og:site_name" content="小茗同学的blog">
-<meta property="og:description" content="详解JS中this的几种不同指向如何理解this A this value is a special object which is related with the execution context. Therefore, it may be named as a context object (i.e. an object in which context the execution con">
-<meta property="og:updated_time" content="2017-04-08T10:02:18.389Z">
+<meta property="og:description" content="如何理解this A this value is a special object which is related with the execution context. Therefore, it may be named as a context object (i.e. an object in which context the execution context is activate">
+<meta property="og:updated_time" content="2017-04-09T07:45:23.215Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小茗同学的blog">
-<meta name="twitter:description" content="详解JS中this的几种不同指向如何理解this A this value is a special object which is related with the execution context. Therefore, it may be named as a context object (i.e. an object in which context the execution con">
+<meta name="twitter:title" content="详解JS中this的几种不同指向">
+<meta name="twitter:description" content="如何理解this A this value is a special object which is related with the execution context. Therefore, it may be named as a context object (i.e. an object in which context the execution context is activate">
   
     <link rel="alternative" href="/atom.xml" title="小茗同学的blog" type="application/atom+xml">
   
@@ -144,16 +144,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-详解JS之this的不同指向" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-node使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      详解JS中this的几种不同指向
+    </h1>
+  
+
+        
+        <a href="/2016/11/08/node使用/" class="archive-article-date">
+  	<time datetime="2016-11-08T13:16:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="详解JS中this的几种不同指向"><a href="#详解JS中this的几种不同指向" class="headerlink" title="详解JS中this的几种不同指向"></a>详解JS中this的几种不同指向</h1><h4 id="如何理解this"><a href="#如何理解this" class="headerlink" title="如何理解this"></a>如何理解this</h4><ol>
-<li><p>A this value is a special object which is related with the execution context. Therefore, it may be named as a context object (i.e. an object in which context the execution context is activated). <code>this</code>是和执行上下文环境息息相关的一个特殊对象。因此，它也可以称为上下文对象(激活执行上下文的上下文)。 </p>
-</li>
-<li><p>a this value is a property of the execution context, but not a property of the variable object。<code>this</code>是执行上下文环境的一个属性，而不是某个变量对象的属性。这个特点很重要，因为和变量不同，<code>this</code>是没有 一个类似搜寻变量的过程。当你在代码中使用了<code>this</code>,这个 <code>this</code>的值就直接从执行的上下文中获取了，而不会从作用域链中搜寻。<code>this</code>的值只取决中进入上下文时的情况。本文列举了<code>this</code>在js中的几种情况，以供参考。</p>
-</li>
+        <h4 id="如何理解this"><a href="#如何理解this" class="headerlink" title="如何理解this"></a>如何理解this</h4><ol>
+<li>A this value is a special object which is related with the execution context. Therefore, it may be named as a context object (i.e. an object in which context the execution context is activated). <code>this</code>是和执行上下文环境息息相关的一个特殊对象。因此，它也可以称为上下文对象(激活执行上下文的上下文)。 </li>
+<li>a this value is a property of the execution context, but not a property of the variable object。<code>this</code>是执行上下文环境的一个属性，而不是某个变量对象的属性。这个特点很重要，因为和变量不同，<code>this</code>是没有 一个类似搜寻变量的过程。当你在代码中使用了<code>this</code>,这个 <code>this</code>的值就直接从执行的上下文中获取了，而不会从作用域链中搜寻。<code>this</code>的值只取决中进入上下文时的情况。本文列举了<code>this</code>在js中的几种情况，以供参考。</li>
 </ol>
 <h5 id="1-构造函数中的this指向实例对象"><a href="#1-构造函数中的this指向实例对象" class="headerlink" title="1.构造函数中的this指向实例对象"></a>1.构造函数中的this指向实例对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">info</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.info = info</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// stu1</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Person(<span class="string">"hello"</span>);</div></pre></td></tr></table></figure>
 <h5 id="2-原型方法中的this指向构造函数实例化的对象，与构造函数中的this指向相同"><a href="#2-原型方法中的this指向构造函数实例化的对象，与构造函数中的this指向相同" class="headerlink" title="2.原型方法中的this指向构造函数实例化的对象，与构造函数中的this指向相同"></a>2.原型方法中的this指向构造函数实例化的对象，与构造函数中的this指向相同</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">info</span>)</span>&#123;</div><div class="line">      <span class="keyword">this</span>.info = info</div><div class="line">  &#125;</div><div class="line">  Person.prototype.showInfo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// stu1</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> stu1 = <span class="keyword">new</span> Person(<span class="string">"hello"</span>);</div><div class="line">  stu1.showInfo();  <span class="comment">// 调用原型方法</span></div></pre></td></tr></table></figure>
@@ -196,6 +209,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js this使用</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -246,7 +270,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/08/详解JS之this的不同指向/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/11/08/node使用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -260,18 +284,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/04/08/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hello World
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/09/JS之类数组转换数组的2种方式 /" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2017/04/08/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
